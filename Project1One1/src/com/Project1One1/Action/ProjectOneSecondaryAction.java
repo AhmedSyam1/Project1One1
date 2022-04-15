@@ -1,7 +1,6 @@
   
 package com.Project1One1.Action;
 
-import com.Project1One1.Design.ProjectOneDesign;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -38,8 +37,8 @@ cancelSecondaryOrderButton = new JButton("Cancel Order");
 createNewSecondaryOrderButton.setActionCommand("newSecondaryOrderRight");
 cancelSecondaryOrderButton.setActionCommand("cancelSecondaryOrderRight");
 
-createNewSecondaryOrderButton.addActionListener(frame);
-cancelSecondaryOrderButton.addActionListener(frame);
+createNewSecondaryOrderButton.addActionListener(frame.getdesignNew());
+cancelSecondaryOrderButton.addActionListener(frame.getdesignNew());
 setLayout(new GridLayout(4, 2));
 
 add(itemNameLabel);

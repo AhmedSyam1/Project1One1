@@ -1,7 +1,6 @@
 
 package com.Project1One1.Action;
 
-import com.Project1One1.Design.ProjectOneDesign;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -31,8 +30,8 @@ cancelMainOrderButton = new JButton("Cancel Order");
 createNewMainOrderButton.setActionCommand("newMainOrderLeft");
 cancelMainOrderButton.setActionCommand("cancelMainOrderLeft");
 
-createNewMainOrderButton.addActionListener(frame);
-cancelMainOrderButton.addActionListener(frame);
+createNewMainOrderButton.addActionListener(frame.getdesignNew());
+cancelMainOrderButton.addActionListener(frame.getdesignNew());
 setLayout(new GridLayout(3, 2));
 
 add(invoiceDateLabel);

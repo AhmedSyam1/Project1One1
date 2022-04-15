@@ -17,7 +17,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loadMenuActionPerformed"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="loadMenu.addActionListener(this);  "/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="loadMenu.addActionListener(designNew);  "/>
               </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="saveMenu">
@@ -25,7 +25,7 @@
                 <Property name="text" type="java.lang.String" value="Save File"/>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="saveMenu.addActionListener(this);"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="saveMenu.addActionListener(designNew);"/>
               </AuxValues>
             </MenuItem>
           </SubComponents>
@@ -183,7 +183,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="invoiceMainTableOneLift.getSelectionModel().addListSelectionListener(this); "/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="invoiceMainTableOneLift.getSelectionModel().addListSelectionListener(designNew); "/>
           </AuxValues>
         </Component>
       </SubComponents>
@@ -193,7 +193,7 @@
         <Property name="text" type="java.lang.String" value="Create New Main Invoice"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="CreateNewMainInvoice.addActionListener(this); "/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="CreateNewMainInvoice.addActionListener(designNew); "/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="deleteInvoiceMainOneleft">
@@ -201,7 +201,7 @@
         <Property name="text" type="java.lang.String" value="Delete Main Invoice"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="deleteInvoiceMainOneleft.addActionListener(this); "/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="deleteInvoiceMainOneleft.addActionListener(designNew); "/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
@@ -257,7 +257,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createInvoiceSecondaryTwoRightActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="createInvoiceSecondaryTwoRight.addActionListener(this); "/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="createInvoiceSecondaryTwoRight.addActionListener(designNew); "/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="deleteInvoiceSecondaryTwoRight">
@@ -265,7 +265,7 @@
         <Property name="text" type="java.lang.String" value="Delete Secondary Invoice"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="deleteInvoiceSecondaryTwoRight.addActionListener(this); "/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="deleteInvoiceSecondaryTwoRight.addActionListener(designNew); "/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">

@@ -5,11 +5,11 @@
 
         jScrollPane1 = new javax.swing.JScrollPane();
         invoiceMainTableOneLift = new javax.swing.JTable();
-        invoiceMainTableOneLift.getSelectionModel().addListSelectionListener(this);
+        invoiceMainTableOneLift.getSelectionModel().addListSelectionListener(designNew);
         CreateNewMainInvoice = new javax.swing.JButton();
-        CreateNewMainInvoice.addActionListener(this);
+        CreateNewMainInvoice.addActionListener(designNew);
         deleteInvoiceMainOneleft = new javax.swing.JButton();
-        deleteInvoiceMainOneleft.addActionListener(this);
+        deleteInvoiceMainOneleft.addActionListener(designNew);
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -20,16 +20,16 @@
         jScrollPane2 = new javax.swing.JScrollPane();
         invoiceSecondaryTableTwoRight = new javax.swing.JTable();
         createInvoiceSecondaryTwoRight = new javax.swing.JButton();
-        createInvoiceSecondaryTwoRight.addActionListener(this);
+        createInvoiceSecondaryTwoRight.addActionListener(designNew);
         deleteInvoiceSecondaryTwoRight = new javax.swing.JButton();
-        deleteInvoiceSecondaryTwoRight.addActionListener(this);
+        deleteInvoiceSecondaryTwoRight.addActionListener(designNew);
         jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         loadMenu = new javax.swing.JMenuItem();
-        loadMenu.addActionListener(this);
+        loadMenu.addActionListener(designNew);
         saveMenu = new javax.swing.JMenuItem();
-        saveMenu.addActionListener(this);
+        saveMenu.addActionListener(designNew);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -220,30 +220,20 @@
 
 
 
-package com.Project1One1.Design;
+package com.Project1One1.Action;
 
 import com.Project1One1.Structure.ProjectOneStructureMain;
 import com.Project1One1.Structure.ProjectOneStructureMainTable;
-import com.Project1One1.Structure.ProjectOneStructureSecondary;
 import com.Project1One1.Structure.ProjectOneStructureSecondaryTable;
-import com.Project1One1.Action.ProjectOneMainAction;
-import com.Project1One1.Action.ProjectOneSecondaryAction;
+import com.Project1One1.projectOneDesignNew.ProjectOneDesignNew;
 import java.util.List;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 
 
 
@@ -252,7 +242,7 @@ import javax.swing.event.ListSelectionListener;
  * @author HP
  */
 
-public class ProjectOneDesign extends javax.swing.JFrame implements ActionListener, ListSelectionListener {
+public class ProjectOneDesign extends javax.swing.JFrame{
 
 
 
@@ -274,11 +264,11 @@ private void initComponents() {
 
 jScrollPane1 = new javax.swing.JScrollPane();
 invoiceMainTableOneLift = new javax.swing.JTable();
-invoiceMainTableOneLift.getSelectionModel().addListSelectionListener(this);
+invoiceMainTableOneLift.getSelectionModel().addListSelectionListener(designNew);
 CreateNewMainInvoice = new javax.swing.JButton();
-CreateNewMainInvoice.addActionListener(this);
+CreateNewMainInvoice.addActionListener(designNew);
 deleteInvoiceMainOneleft = new javax.swing.JButton();
-deleteInvoiceMainOneleft.addActionListener(this);
+deleteInvoiceMainOneleft.addActionListener(designNew);
 jLabel1 = new javax.swing.JLabel();
 jLabel2 = new javax.swing.JLabel();
 jLabel3 = new javax.swing.JLabel();
@@ -290,15 +280,15 @@ invoiceTotalLabel = new javax.swing.JLabel();
 jScrollPane2 = new javax.swing.JScrollPane();
 invoiceSecondaryTableTwoRight = new javax.swing.JTable();
 createInvoiceSecondaryTwoRight = new javax.swing.JButton();
-createInvoiceSecondaryTwoRight.addActionListener(this);
+createInvoiceSecondaryTwoRight.addActionListener(designNew);
 deleteInvoiceSecondaryTwoRight = new javax.swing.JButton();
-deleteInvoiceSecondaryTwoRight.addActionListener(this);
+deleteInvoiceSecondaryTwoRight.addActionListener(designNew);
 jMenuBar1 = new javax.swing.JMenuBar();
 jMenu1 = new javax.swing.JMenu();
 loadMenu = new javax.swing.JMenuItem();
-loadMenu.addActionListener(this);
+loadMenu.addActionListener(designNew);
 saveMenu = new javax.swing.JMenuItem();
-saveMenu.addActionListener(this);
+saveMenu.addActionListener(designNew);
 
 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -510,277 +500,107 @@ private javax.swing.JScrollPane jScrollPane2;
 private javax.swing.JMenuItem loadMenu;
 private javax.swing.JMenuItem saveMenu;
 // End of variables declaration                   
-private DateFormat invoiceDateTextField = new SimpleDateFormat("dd-MM-yyyy");
 private List<ProjectOneStructureMain> invoiceStructureMainList = new ArrayList<>();
 private ProjectOneStructureMainTable invoiceStructureMainTable;
 private ProjectOneStructureSecondaryTable invoiceStructureSecondaryTable;
 private ProjectOneMainAction mainAction;
 private ProjectOneSecondaryAction secondaryAction;
+private ProjectOneDesignNew designNew = new ProjectOneDesignNew(this);
 
-@Override
-public void actionPerformed(ActionEvent e) {
+ public ProjectOneDesignNew getdesignNew() {
+        return designNew;
+    }
 
-switch (e.getActionCommand()) {
-case "CreateNewMainInvoice":
-newInvoiceMain();
-break;
-case "DeleteMainInvoice":
-invoiceMainDelete();
-break;
-case "CreateNewSecondaryInvoice":
-newInvoiceSecondary();
-break;
-case "DeleteSecondaryInvoice":
-invoiceSecondaryDelete();
-break;
-case "LoadFile":
-loadFile();
-break;
-case "SaveFile":
-saveFile();
-break;
-case "cancelMainOrderLeft":
-mainOrderCancel();
-break;
-case "newMainOrderLeft":
-newMainOrderLeft();
-break;
-case "cancelSecondaryOrderRight":
-cancelSecondaryOrderRight();
-break;
-case "newSecondaryOrderRight":
-newSecondaryOrderRight();
-break;
-}
-}
+   public void setMainAction(ProjectOneMainAction mainAction) {
+        this.mainAction = mainAction;
+    }
 
-private void loadFile() {
-JOptionPane.showMessageDialog(this, "Choose Main File", "Attension", JOptionPane.INFORMATION_MESSAGE);
-JFileChooser openFile = new JFileChooser();
-int output = openFile.showOpenDialog(this);
-if (output == JFileChooser.APPROVE_OPTION) {
-File MainFile = openFile.getSelectedFile();
-try {
-FileReader mainFr = new FileReader(MainFile);
-BufferedReader mainBr = new BufferedReader(mainFr);
-String mainSecondary = null;
+    public void setSecondaryAction(ProjectOneSecondaryAction secondaryAction) {
+        this.secondaryAction = secondaryAction;
+    }
 
-while ((mainSecondary = mainBr.readLine()) != null) {
-String[] mainParts = mainSecondary.split(",");
-String invoiceNummberS = mainParts[0];
-String invoiceDateS = mainParts[1];
-String customerName = mainParts[2];
+    public void setInvoiceStructureSecondaryTable(ProjectOneStructureSecondaryTable invoiceStructureSecondaryTable) {
+        this.invoiceStructureSecondaryTable = invoiceStructureSecondaryTable;
+    }
 
-int invoiceNumber = Integer.parseInt(invoiceNummberS);
-Date invoiceDate = invoiceDateTextField.parse(invoiceDateS);
+    public void setInvoiceStructureMainTable(ProjectOneStructureMainTable invoiceStructureMainTable) {
+        this.invoiceStructureMainTable = invoiceStructureMainTable;
+    }
 
-ProjectOneStructureMain invoice = new ProjectOneStructureMain(invoiceNumber, customerName, invoiceDate);
-invoiceStructureMainList.add(invoice);
-}
+    public JButton getCreateNewMainInvoice() {
+        return CreateNewMainInvoice;
+    }
 
-JOptionPane.showMessageDialog(this, "Choose Secondary File", "Attension", JOptionPane.INFORMATION_MESSAGE);
-output = openFile.showOpenDialog(this);
-if (output == JFileChooser.APPROVE_OPTION) {
-File secondaryFile = openFile.getSelectedFile();
-BufferedReader secondaryBr = new BufferedReader(new FileReader(secondaryFile));
-String secondarySecondary = null;
-while ((secondarySecondary = secondaryBr.readLine()) != null) {
-String[] secondaryParts = secondarySecondary.split(",");
-String invoiceNumberS = secondaryParts[0];
-String itemName = secondaryParts[1];
-String itemPriceS = secondaryParts[2];
-String itemCountS = secondaryParts[3];
+    public JButton getCreateInvoiceSecondaryTwoRight() {
+        return createInvoiceSecondaryTwoRight;
+    }
 
-int invoiceNumber = Integer.parseInt(invoiceNumberS);
-double itemPrice = Double.parseDouble(itemPriceS);
-int itemCount = Integer.parseInt(itemCountS);
-ProjectOneStructureMain main = searchInvoiceNumber(invoiceNumber);
-ProjectOneStructureSecondary invoiceSecondary = new ProjectOneStructureSecondary(itemName, itemPrice, itemCount, main);
-main.getSecondary().add(invoiceSecondary);
-}
-invoiceStructureMainTable = new ProjectOneStructureMainTable(invoiceStructureMainList);
-invoiceMainTableOneLift.setModel(invoiceStructureMainTable);
-invoiceMainTableOneLift.validate();
-}
-System.out.println("revise");
-} catch (Exception ex) {
-ex.printStackTrace();
-}
-}
-showInv();
-}
+    public JTextField getCustomerNameTextFiled() {
+        return customerNameTextFiled;
+    }
 
-private void saveFile() {
-String mains = "";
-String secondarys = "";
-for (ProjectOneStructureMain main : invoiceStructureMainList) {
-mains += main.getInformationsCSV();
-mains += "\n";
-for (ProjectOneStructureSecondary secondary : main.getSecondary()) {
-secondarys += secondary.getInformationsCSV();
-secondarys += "\n";
-}
-}
-JOptionPane.showMessageDialog(this, "Choose File to Save Main Invoice", "Attension", JOptionPane.INFORMATION_MESSAGE);
-JFileChooser fileChooser = new JFileChooser();
-int output = fileChooser.showSaveDialog(this);
-if (output == JFileChooser.APPROVE_OPTION) {
-File mainFile = fileChooser.getSelectedFile();
-try {
-FileWriter MainFileWriter = new FileWriter(mainFile);
-MainFileWriter.write(mains);
-MainFileWriter.flush();
-MainFileWriter.close();
+    public JButton getDeleteInvoiceMainOneleft() {
+        return deleteInvoiceMainOneleft;
+    }
 
-JOptionPane.showMessageDialog(this, "Choose File to Save Secondary Invoice", "Attension", JOptionPane.INFORMATION_MESSAGE);
-output = fileChooser.showSaveDialog(this);
-if (output == JFileChooser.APPROVE_OPTION) {
-File secondaryFile = fileChooser.getSelectedFile();
-FileWriter secondaryFileWriter = new FileWriter(secondaryFile);
-secondaryFileWriter.write(secondarys);
-secondaryFileWriter.flush();
-secondaryFileWriter.close();
-}
-} catch (Exception ex) {
-JOptionPane.showMessageDialog(this, "not responding: " + ex.getMessage(), "not responding", JOptionPane.INFORMATION_MESSAGE);
-}
-}
+    public JButton getDeleteInvoiceSecondaryTwoRight() {
+        return deleteInvoiceSecondaryTwoRight;
+    }
 
-}
+    public JTextField getInvoiceDateTextFiled() {
+        return invoiceDateTextFiled;
+    }
 
-private ProjectOneStructureMain searchInvoiceNumber(int invoiceNumber) {
-ProjectOneStructureMain main = null;
-for (ProjectOneStructureMain invoice : invoiceStructureMainList) {
-if (invoiceNumber == invoice.getInvoiceNumber()) {
-main = invoice;
-break;
-}
-}
-return main;
-}
+    public JTable getInvoiceSecondaryTableTwoRight() {
+        return invoiceSecondaryTableTwoRight;
+    }
 
-@Override
-public void valueChanged(ListSelectionEvent e) {
-System.out.println("Invoice Choosed");
-invoiceMainTableRowChoosed();
-}
+    public JLabel getInvoiceNumberLabel() {
+        return invoiceNumberLabel;
+    }
 
-private void invoiceMainTableRowChoosed() {
-int choosedRowIndex = invoiceMainTableOneLift.getSelectedRow();
-if (choosedRowIndex >= 0) {
-ProjectOneStructureMain row = invoiceStructureMainTable.getInvoiceMain().get(choosedRowIndex);
-customerNameTextFiled.setText(row.getCustomerName());
-invoiceDateTextFiled.setText(invoiceDateTextField.format(row.getInvoiceDate()));
-invoiceNumberLabel.setText("" + row.getInvoiceNumber());
-invoiceTotalLabel.setText("" + row.getInvoiceTotal());
-ArrayList<ProjectOneStructureSecondary> secondary = row.getSecondary();
-invoiceStructureSecondaryTable = new ProjectOneStructureSecondaryTable(secondary);
-invoiceSecondaryTableTwoRight.setModel(invoiceStructureSecondaryTable);
-invoiceStructureSecondaryTable.fireTableDataChanged();
-}
-}
+    public JLabel getInvoiceTotalLabel() {
+        return invoiceTotalLabel;
+    }
 
-private void newInvoiceMain() {
-mainAction = new ProjectOneMainAction(this);
-mainAction.setVisible(true);
-}
+    public JTable getInvoiceMainTableOneLift() {
+        return invoiceMainTableOneLift;
+    }
 
-private void newInvoiceSecondary() {
-secondaryAction = new ProjectOneSecondaryAction(this);
-secondaryAction.setVisible(true);
-}
+    public JMenuItem getLoadMenu() {
+        return loadMenu;
+    }
 
-private void mainOrderCancel() {
-mainAction.setVisible(false);
-mainAction.dispose();
-mainAction = null;
-}
+    public JMenuItem getSaveMenu() {
+        return saveMenu;
+    }
 
-private void newMainOrderLeft() {
-String customerName = mainAction.getCustomerNameTextField().getText();
-String invoiceDateS = mainAction.getInvoiceDateTextField().getText();
-mainAction.setVisible(false);
-mainAction.dispose();
-mainAction = null;
-try {
-Date invoiceDate = invoiceDateTextField.parse(invoiceDateS);
-int invoiceNumber = otherInvoiceNumber();
-ProjectOneStructureMain invoiceMain = new ProjectOneStructureMain(invoiceNumber, customerName, invoiceDate);
-invoiceStructureMainList.add(invoiceMain);
-invoiceStructureMainTable.fireTableDataChanged();
-} catch (ParseException ex) {
-ex.printStackTrace();
-}
-showInv();
-}
 
-private int otherInvoiceNumber() {
-int max = 0;
-for (ProjectOneStructureMain Main : invoiceStructureMainList) {
-if (Main.getInvoiceNumber() > max) {
-max = Main.getInvoiceNumber();
-}
-}
-return max + 1;
-}
+    public List<ProjectOneStructureMain> getInvoiceStructureMainList() {
+        return invoiceStructureMainList;
+    }
 
-private void cancelSecondaryOrderRight() {
-secondaryAction.setVisible(false);
-secondaryAction.dispose();
-secondaryAction = null;
-}
+    public ProjectOneStructureMainTable getInvoiceStructureMainTable() {
+        return invoiceStructureMainTable;
+    }
 
-private void newSecondaryOrderRight() {
-String itemName = secondaryAction.getItemNameTextField().getText();
-String itemCountS = secondaryAction.getItemCountTextField().getText();
-String itemPriceS = secondaryAction.getItemPriceTextField().getText();
-secondaryAction.setVisible(false);
-secondaryAction.dispose();
-secondaryAction = null;
-int itemCount = Integer.parseInt(itemCountS);
-double itemPrice = Double.parseDouble(itemPriceS);
-int MainIndex = invoiceMainTableOneLift.getSelectedRow();
-ProjectOneStructureMain invoice = invoiceStructureMainTable.getInvoiceMain().get(MainIndex);
+    public ProjectOneStructureSecondaryTable getInvoiceStructureSecondaryTable() {
+        return invoiceStructureSecondaryTable;
+    }
 
-ProjectOneStructureSecondary invoiceSecondary = new ProjectOneStructureSecondary(itemName, itemPrice, itemCount, invoice);
-invoice.addInvoiceSecondary(invoiceSecondary);
-invoiceStructureSecondaryTable.fireTableDataChanged();
-invoiceStructureMainTable.fireTableDataChanged();
-invoiceTotalLabel.setText("" + invoice.getInvoiceTotal());
-showInv();
-}
+    public ProjectOneMainAction getMainAction() {
+        return mainAction;
+    }
 
-private void invoiceMainDelete() {
-int invoiceIndex = invoiceMainTableOneLift.getSelectedRow();
-ProjectOneStructureMain main = invoiceStructureMainTable.getInvoiceMain().get(invoiceIndex);
-invoiceStructureMainTable.getInvoiceMain().remove(invoiceIndex);
-invoiceStructureMainTable.fireTableDataChanged();
-invoiceStructureSecondaryTable = new ProjectOneStructureSecondaryTable(new ArrayList<ProjectOneStructureSecondary>());
-invoiceSecondaryTableTwoRight.setModel(invoiceStructureSecondaryTable);
-invoiceStructureSecondaryTable.fireTableDataChanged();
-customerNameTextFiled.setText("");
-invoiceDateTextFiled.setText("");
-invoiceNumberLabel.setText("");
-invoiceTotalLabel.setText("");
-showInv();
-}
+    public ProjectOneSecondaryAction getSecondaryAction() {
+        return secondaryAction;
+    }
 
-private void invoiceSecondaryDelete() {
-int secondaryIndex = invoiceSecondaryTableTwoRight.getSelectedRow();
-ProjectOneStructureSecondary secondary = invoiceStructureSecondaryTable.getInvoiceSecondary().get(secondaryIndex);
-invoiceStructureSecondaryTable.getInvoiceSecondary().remove(secondaryIndex);
-invoiceStructureSecondaryTable.fireTableDataChanged();
-invoiceStructureMainTable.fireTableDataChanged();
-invoiceTotalLabel.setText("" + secondary.getMain().getInvoiceTotal());
-showInv();
-}
+  
+   
 
-private void showInv() {
-System.out.println("succeeded");
-for (ProjectOneStructureMain main : invoiceStructureMainList) {
-System.out.println(main);
-}
-System.out.println("succeeded");
-}
+
+   
+
 
 }
