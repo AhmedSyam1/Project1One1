@@ -240,6 +240,7 @@ design.setMainAction(null);
 }
 
 private void newMainOrderLeft() {
+invoiceDateTextField.setLenient(false);
 String customerName = design.getMainAction().getCustomerNameTextField().getText();
 String invoiceDateS = design.getMainAction().getInvoiceDateTextField().getText();
 design.getMainAction().setVisible(false);
@@ -253,9 +254,8 @@ design.getInvoiceStructureMainList().add(invoiceMain);
 design.getInvoiceStructureMainTable().fireTableDataChanged();
 } catch (ParseException ex) {
     
-JOptionPane.showMessageDialog(design, "Please enter the month from 1 to 12 only.","Stop",JOptionPane.INFORMATION_MESSAGE);
+JOptionPane.showMessageDialog(design, "Wrong Date.","Stop",JOptionPane.INFORMATION_MESSAGE);
         
-ex.printStackTrace();
 }
 showInv();
 }
@@ -277,6 +277,7 @@ design.setSecondaryAction(null);
 }
 
 private void newSecondaryOrderRight() {
+int sRow=design.getInvoiceMainTableOneLift().getSelectedRow();
 String itemName = design.getSecondaryAction().getItemNameTextField().getText();
 String itemCountS = design.getSecondaryAction().getItemCountTextField().getText();
 String itemPriceS = design.getSecondaryAction().getItemPriceTextField().getText();
@@ -294,6 +295,7 @@ design.getInvoiceStructureSecondaryTable().fireTableDataChanged();
 design.getInvoiceStructureMainTable().fireTableDataChanged();
 design.getInvoiceTotalLabel().setText("" + invoice.getInvoiceTotal());
 showInv();
+design.getInvoiceMainTableOneLift().setRowSelectionInterval(sRow, sRow);
 }
 
 private void invoiceMainDelete() {
